@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>学习记录01</title>
+</head>
+ 
+<body>
+	<h1>Web开发学习记录</h1>
+	
+	<h2>01 canvas 标签学习</h2>
+	
+	<h3>.1绘制直线</h3>
+	<canvas id = "huaBu1" width = "200" height = "200" 
+	style = "border:5px solid #FDD3E1;" >
+	</canvas>
+	
+	<h3>.2绘制圆形</h3>
+	<canvas id = "huaBu2" width = "200" height = "200" 
+	style = "border:5px solid #FDD3E1;" >
+	</canvas>
+	
+	<h3>.3绘制填充矩形</h3>
+	<canvas id = "huaBu3" width = "200" height = "200" 
+	style = "border:5px solid #FDD3E1;" >
+	</canvas>
+	
+	<h3>.4绘制文字</h3>
+	<canvas id = "huaBu4" width = "200" height = "200" 
+	style = "border:5px solid #FDD3E1;" >
+	</canvas>
+	
+	<h3>.5创建渐变</h3>
+	<canvas id = "huaBu5" width = "200" height = "200" 
+	style = "border:5px solid #FDD3E1;" >
+	</canvas>
+	
+	<h3>.6现实外部图片</h3>
+	<p>直接显示</p>
+	<img id="myImg" src="img_the_scream.jpg" alt="The Scream" width="220" height="277">
+	<p>利用canvas</p>
+	<canvas id = "huaBu6" width = "400" height = "400" 
+	style = "border:5px solid #FDD3E1;" >
+	</canvas>
+	
+	<script>
+		let myBox1 = document.getElementById("huaBu1");
+		let myCxt1 = huaBu1.getContext("2d");
+		myCxt1.moveTo(50, 50);
+		myCxt1.lineTo(150, 150);
+		myCxt1.stroke();
+		
+		let myBox2 = document.getElementById("huaBu2");
+		let myCxt2 = huaBu2.getContext("2d");
+		myCxt2.beginPath();
+		myCxt2.arc(95,50,40,0,2*Math.PI);
+		myCxt2.stroke();
+		
+		let myBox3 = document.getElementById("huaBu3");
+		let myCxt3 = huaBu3.getContext("2d");
+		myCxt3.fillStyle = "#FDD3E1";
+		myCxt3.fillRect(50, 50, 100, 100);
+		
+		let myBox4 = document.getElementById("huaBu4")
+		let myCxt4 = myBox4.getContext("2d")
+		myCxt4.font="30px Arial"
+		myCxt4.fillText("Hello World",10,50)
+		myCxt4.strokeText("你好 世界 ", 50,100)
+		
+		let myBox5 = document.getElementById("huaBu5")
+		let myCxt5 = huaBu5.getContext("2d")
+		// 创建渐变
+		var grd = myCxt5.createLinearGradient(0,0,100,0);
+		grd.addColorStop(0,"red");
+		grd.addColorStop(1,"white");
+		//填充出来
+		myCxt5.fillStyle=grd;
+		myCxt5.fillRect(10,10,150,80);
+		
+		let myBox6 = document.getElementById("huaBu6")
+		let myCxt6 = myBox6.getContext("2d")
+		let img = document.getElementById("myImg")
+		myCxt6.drawImage(img,20,20)
+	</script>
+	
+	<p></p>
+	
+</body>
+ 
+</html>
